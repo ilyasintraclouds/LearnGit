@@ -1,8 +1,11 @@
 tasks = []
+FILE_NAME = "tasks.txt"
 
 def add_task(task):
     tasks.append({"task": task, "done": False})
-
+    with open(FILE_NAME, "a") as f:
+        f.write(task + "\n")
+        
 def list_tasks():
     for i, t in enumerate(tasks):
         status = "✔" if t["done"] else "✘"
