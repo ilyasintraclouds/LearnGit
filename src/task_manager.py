@@ -7,9 +7,13 @@ def add_task(task):
         f.write(task + "\n")
         
 def list_tasks():
-    for i, t in enumerate(tasks):
-        status = "✔" if t["done"] else "✘"
-        print(f"{i + 1}. {t['task']} [{status}]")
+    try:
+        with open(FILE_NAME, "r") as f:
+            lines = f.readlines()
+            for i, line in enumerate(lines):
+                print(f"{i + 1}. {line.strip()}")
+    except FileNotFoundError:
+        print("No tasks found.")
 
 def mark_done(index):
     if 0 <= index < len(tasks):
