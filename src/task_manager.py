@@ -25,8 +25,11 @@ if __name__ == "__main__":
         choice = input("Choose: ")
 
         if choice == "1":
-            task = input("Enter task: ")
-            add_task(task)
+            task = input("Enter task: ").strip()
+            if task:
+                add_task(task)
+            else:
+                print("Task cannot be empty")
         elif choice == "2":
             list_tasks()
         elif choice == "3":
