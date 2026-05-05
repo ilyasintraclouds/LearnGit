@@ -4,9 +4,9 @@ def add_task(task):
     tasks.append({"task": task, "done": False})
 
 def list_tasks():
+    print("Listing all tasks:")
     for i, t in enumerate(tasks):
-        status = "✔" if t["done"] else "✘"
-        print(f"{i + 1}. {t['task']} [{status}]")
+        print(f"{i + 1}. {t['task']}")
 
 def mark_done(index):
     if 0 <= index < len(tasks):
